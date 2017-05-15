@@ -23,3 +23,96 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many property_reviews -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Property Reviews
+      </li>
+
+      <% @user.property_reviews.each do |property_review| %>
+        <li class="list-group-item">
+          <a href="/property_reviews/<%= property_review.id %>">
+            <%= property_review.content %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/property_reviews/<%= property_review.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/property_reviews/<%= property_review.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_property_review/<%= property_review.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many properties -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Properties
+      </li>
+
+      <% @user.properties.each do |property| %>
+        <li class="list-group-item">
+          <a href="/properties/<%= property.id %>">
+            <%= property.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/properties/<%= property.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/properties/<%= property.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_property/<%= property.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many requests -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Requests
+      </li>
+
+      <% @user.requests.each do |request| %>
+        <li class="list-group-item">
+          <a href="/requests/<%= request.id %>">
+            <%= request.property_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/requests/<%= request.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/requests/<%= request.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_request/<%= request.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

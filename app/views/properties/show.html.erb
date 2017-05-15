@@ -44,3 +44,96 @@
     </div>
   </div>
 </div>
+
+<!-- A Property has many pictures -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Pictures
+      </li>
+
+      <% @property.pictures.each do |picture| %>
+        <li class="list-group-item">
+          <a href="/pictures/<%= picture.id %>">
+            <%= picture.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/pictures/<%= picture.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/pictures/<%= picture.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_picture/<%= picture.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Property has many property_reviews -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Property Reviews
+      </li>
+
+      <% @property.property_reviews.each do |property_review| %>
+        <li class="list-group-item">
+          <a href="/property_reviews/<%= property_review.id %>">
+            <%= property_review.content %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/property_reviews/<%= property_review.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/property_reviews/<%= property_review.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_property_review/<%= property_review.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Property has many requests -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Requests
+      </li>
+
+      <% @property.requests.each do |request| %>
+        <li class="list-group-item">
+          <a href="/requests/<%= request.id %>">
+            <%= request.property_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/requests/<%= request.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/requests/<%= request.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_request/<%= request.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
