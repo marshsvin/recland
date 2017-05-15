@@ -17,7 +17,7 @@
       <% @pictures.each do |picture| %>
       <tr>
         <td><%= picture.image %></td>
-        <td><%= picture.property_id %></td>
+        <td><%= picture.property.user_id %></td>
         <td>
           <a href="/pictures/<%= picture.id %>" class="btn btn-primary">Show</a>
           <a href="/pictures/<%= picture.id %>/edit" class="btn btn-warning">Edit</a>
