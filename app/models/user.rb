@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :properties,
+             :dependent => :destroy
+
   has_many   :property_reviews
 
   # Indirect associations
