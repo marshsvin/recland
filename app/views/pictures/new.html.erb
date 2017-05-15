@@ -33,7 +33,7 @@
           Property
         </label>
 
-        <input type="text" id="property_id" name="property_id" placeholder="Property" class="form-control" value="<%= @picture.property_id %>">
+        <%= select_tag(:property_id, options_from_collection_for_select(Property.all, :id, :user_id, @picture.property_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
