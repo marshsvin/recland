@@ -16,6 +16,9 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @request = Request.new
+    @property_review = PropertyReview.new
+    @picture = Picture.new
     @property = Property.find(params[:id])
 
     render("properties/show.html.erb")

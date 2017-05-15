@@ -74,6 +74,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_picture" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="file" id="image" name="image" class="form-control">
+      </div>
+
+      <!-- Label and input for property_id -->
+      <input type="hidden" name="property_id" value="<%= @property.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Picture
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -105,6 +128,32 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_property_review" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for content -->
+      <div class="form-group">
+        <label for="content" class="control-label">
+          Content
+        </label>
+
+        <input type="text" id="content" name="content" placeholder="Content" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for property_id -->
+      <input type="hidden" name="property_id" value="<%= @property.id %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Property Review
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -136,6 +185,58 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_request" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for property_id -->
+      <input type="hidden" name="property_id" value="<%= @property.id %>">
+
+      <!-- Label and input for start_date -->
+      <div class="form-group">
+        <label for="start_date" class="control-label">
+          Start date
+        </label>
+
+        <input type="text" id="start_date" name="start_date" placeholder="Start date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for end_date -->
+      <div class="form-group">
+        <label for="end_date" class="control-label">
+          End date
+        </label>
+
+        <input type="text" id="end_date" name="end_date" placeholder="End date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for acceptance -->
+      <div class="checkbox">
+        <label for="acceptance">
+          <input type="checkbox" id="acceptance" name="acceptance" value="1" <%= "checked" if @request.acceptance %>>
+          Acceptance
+        </label>
+      </div>
+
+      <!-- Label and input for user_review -->
+      <div class="form-group">
+        <label for="user_review" class="control-label">
+          User review
+        </label>
+
+        <input type="text" id="user_review" name="user_review" placeholder="User review" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Request
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
