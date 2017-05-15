@@ -1,0 +1,81 @@
+<!-- Validation failure messages -->
+<% if @request.errors.any? %>
+  <% @request.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Request #<%= @request.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_request/<%= @request.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for property_id -->
+      <div class="form-group">
+        <label for="property_id" class="control-label">
+          Property
+        </label>
+
+        <input type="text" id="property_id" name="property_id" placeholder="Property" class="form-control" value="<%= @request.property_id %>">
+      </div>
+
+      <!-- Label and input for start_date -->
+      <div class="form-group">
+        <label for="start_date" class="control-label">
+          Start date
+        </label>
+
+        <input type="text" id="start_date" name="start_date" placeholder="Start date" class="form-control" value="<%= @request.start_date %>">
+      </div>
+
+      <!-- Label and input for end_date -->
+      <div class="form-group">
+        <label for="end_date" class="control-label">
+          End date
+        </label>
+
+        <input type="text" id="end_date" name="end_date" placeholder="End date" class="form-control" value="<%= @request.end_date %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @request.user_id %>">
+      </div>
+
+      <!-- Label and input for acceptance -->
+      <div class="checkbox">
+        <label for="acceptance">
+          <input type="checkbox" id="acceptance" name="acceptance" value="1" <%= "checked" if @request.acceptance %>>
+          Acceptance
+        </label>
+      </div>
+
+      <!-- Label and input for user_review -->
+      <div class="form-group">
+        <label for="user_review" class="control-label">
+          User review
+        </label>
+
+        <input type="text" id="user_review" name="user_review" placeholder="User review" class="form-control" value="<%= @request.user_review %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Request
+      </button>
+      or
+      <a href="/requests/<%= @request.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

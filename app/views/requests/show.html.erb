@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Request #<%= @request.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Property</dt>
+      <dd><%= @request.property_id %></dd>
+
+      <dt>Start date</dt>
+      <dd><%= @request.start_date %></dd>
+
+      <dt>End date</dt>
+      <dd><%= @request.end_date %></dd>
+
+      <dt>User</dt>
+      <dd><%= @request.user_id %></dd>
+
+      <dt>Acceptance</dt>
+      <dd><%= @request.acceptance %></dd>
+
+      <dt>User review</dt>
+      <dd><%= @request.user_review %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/requests" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/requests/<%= @request.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_request/<%= @request.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
