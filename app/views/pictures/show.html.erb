@@ -9,7 +9,13 @@
       <dd><img src="<%= @picture.image %>" class="img-responsive"></dd>
 
       <dt>Property</dt>
-      <dd><%= @picture.property_id %></dd>
+      <dd>
+        <% if @picture.property.present? %>
+          <a href="/properties/<%= @picture.property_id %>">
+            <%= @picture.property.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

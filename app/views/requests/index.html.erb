@@ -20,10 +20,22 @@
 
       <% @requests.each do |request| %>
       <tr>
-        <td><%= request.property.user_id %></td>
+        <td>
+          <% if request.property.present? %>
+            <a href="/properties/<%= request.property.id %>">
+              <%= request.property.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= request.start_date %></td>
         <td><%= request.end_date %></td>
-        <td><%= request.user.email %></td>
+        <td>
+          <% if request.user.present? %>
+            <a href="/users/<%= request.user.id %>">
+              <%= request.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= request.acceptance %></td>
         <td><%= request.user_review %></td>
         <td>

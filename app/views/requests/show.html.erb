@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Property</dt>
-      <dd><%= @request.property_id %></dd>
+      <dd>
+        <% if @request.property.present? %>
+          <a href="/properties/<%= @request.property_id %>">
+            <%= @request.property.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Start date</dt>
       <dd><%= @request.start_date %></dd>
@@ -15,7 +21,13 @@
       <dd><%= @request.end_date %></dd>
 
       <dt>User</dt>
-      <dd><%= @request.user_id %></dd>
+      <dd>
+        <% if @request.user.present? %>
+          <a href="/users/<%= @request.user_id %>">
+            <%= @request.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Acceptance</dt>
       <dd><%= @request.acceptance %></dd>

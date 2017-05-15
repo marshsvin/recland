@@ -31,7 +31,13 @@
 
       <% @properties.each do |property| %>
       <tr>
-        <td><%= property.user.email %></td>
+        <td>
+          <% if property.user.present? %>
+            <a href="/users/<%= property.user.id %>">
+              <%= property.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= property.address %></td>
         <td><%= property.zip_code %></td>
         <td><%= property.state %></td>
