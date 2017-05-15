@@ -1,5 +1,7 @@
 ActiveAdmin.register Request do
 
+ permit_params :property_id, :start_date, :end_date, :user_id, :acceptance, :user_review
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
