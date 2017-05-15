@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Property_review resource:
+  # CREATE
+  get "/property_reviews/new", :controller => "property_reviews", :action => "new"
+  post "/create_property_review", :controller => "property_reviews", :action => "create"
+
+  # READ
+  get "/property_reviews", :controller => "property_reviews", :action => "index"
+  get "/property_reviews/:id", :controller => "property_reviews", :action => "show"
+
+  # UPDATE
+  get "/property_reviews/:id/edit", :controller => "property_reviews", :action => "edit"
+  post "/update_property_review/:id", :controller => "property_reviews", :action => "update"
+
+  # DELETE
+  get "/delete_property_review/:id", :controller => "property_reviews", :action => "destroy"
+  #------------------------------
+
   # Routes for the Property resource:
   # CREATE
   get "/properties/new", :controller => "properties", :action => "new"

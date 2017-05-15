@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @property_review.errors.any? %>
+  <% @property_review.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Property Review</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_property_review" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for content -->
+      <div class="form-group">
+        <label for="content" class="control-label">
+          Content
+        </label>
+
+        <input type="text" id="content" name="content" placeholder="Content" class="form-control" value="<%= @property_review.content %>">
+      </div>
+
+      <!-- Label and input for property_id -->
+      <div class="form-group">
+        <label for="property_id" class="control-label">
+          Property
+        </label>
+
+        <input type="text" id="property_id" name="property_id" placeholder="Property" class="form-control" value="<%= @property_review.property_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @property_review.user_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Property Review
+      </button>
+      or
+      <a href="/property_reviews">Cancel</a>
+    </form>
+  </div>
+</div>
