@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "properties#index"
   # Routes for the Picture resource:
   # CREATE
   get "/pictures/new", :controller => "pictures", :action => "new"
