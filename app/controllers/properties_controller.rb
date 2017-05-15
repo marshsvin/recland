@@ -53,8 +53,6 @@ class PropertiesController < ApplicationController
 
   def update
     @property = Property.find(params[:id])
-
-    @property.user_id = params[:user_id]
     @property.address = params[:address]
     @property.zip_code = params[:zip_code]
     @property.state = params[:state]
