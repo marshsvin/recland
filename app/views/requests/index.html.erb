@@ -20,7 +20,7 @@
 
       <% @requests.each do |request| %>
       <tr>
-        <td><%= request.property_id %></td>
+        <td><%= request.property.user_id %></td>
         <td><%= request.start_date %></td>
         <td><%= request.end_date %></td>
         <td><%= request.user_id %></td>
