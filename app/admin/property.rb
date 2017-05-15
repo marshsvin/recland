@@ -1,5 +1,7 @@
 ActiveAdmin.register Property do
 
+ permit_params :user_id, :address, :zip_code, :state, :city, :acreage, :description, :price
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
