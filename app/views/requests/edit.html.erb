@@ -24,7 +24,7 @@
           Property
         </label>
 
-        <input type="text" id="property_id" name="property_id" placeholder="Property" class="form-control" value="<%= @request.property_id %>">
+        <%= select_tag(:property_id, options_from_collection_for_select(Property.all, :id, :user_id, @request.property_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for start_date -->
