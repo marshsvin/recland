@@ -10,7 +10,7 @@ class PropertyReviewsController < ApplicationController
   end
 
   def index
-    @property_reviews = PropertyReview.all
+    @property_reviews = PropertyReview.page(params[:page]).per(10)
 
     render("property_reviews/index.html.erb")
   end
