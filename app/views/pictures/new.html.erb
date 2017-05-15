@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @picture.errors.any? %>
+  <% @picture.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Picture</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_picture" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @picture.image %>">
+      </div>
+
+      <!-- Label and input for property_id -->
+      <div class="form-group">
+        <label for="property_id" class="control-label">
+          Property
+        </label>
+
+        <input type="text" id="property_id" name="property_id" placeholder="Property" class="form-control" value="<%= @picture.property_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Picture
+      </button>
+      or
+      <a href="/pictures">Cancel</a>
+    </form>
+  </div>
+</div>
