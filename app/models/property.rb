@@ -1,6 +1,9 @@
 class Property < ApplicationRecord
   # Direct associations
 
+  has_many   :requests,
+             :dependent => :destroy
+
   has_many   :property_reviews,
              :dependent => :destroy
 
