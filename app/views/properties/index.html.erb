@@ -22,7 +22,7 @@
 
       <% @properties.each do |property| %>
       <tr>
-        <td><%= property.user_id %></td>
+        <td><%= property.user.email %></td>
         <td><%= property.address %></td>
         <td><%= property.zip_code %></td>
         <td><%= property.state %></td>
