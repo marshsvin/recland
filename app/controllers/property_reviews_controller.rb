@@ -1,4 +1,14 @@
 class PropertyReviewsController < ApplicationController
+  before_action :current_user_must_be_property_review_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_property_review_user
+    property_review = PropertyReview.find(params[:id])
+
+    unless current_user == property_review.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @property_reviews = PropertyReview.all
 

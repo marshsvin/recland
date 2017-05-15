@@ -20,12 +20,14 @@
       <a href="/property_reviews" class="btn btn-primary">
         Back
       </a>
-      <a href="/property_reviews/<%= @property_review.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_property_review/<%= @property_review.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @property_review.user %>
+        <a href="/property_reviews/<%= @property_review.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_property_review/<%= @property_review.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
