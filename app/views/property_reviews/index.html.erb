@@ -18,7 +18,7 @@
       <% @property_reviews.each do |property_review| %>
       <tr>
         <td><%= property_review.content %></td>
-        <td><%= property_review.property_id %></td>
+        <td><%= property_review.property.user_id %></td>
         <td><%= property_review.user_id %></td>
         <td>
           <a href="/property_reviews/<%= property_review.id %>" class="btn btn-primary">Show</a>
