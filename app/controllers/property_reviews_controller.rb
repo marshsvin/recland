@@ -10,7 +10,8 @@ class PropertyReviewsController < ApplicationController
   end
 
   def index
-    @property_reviews = PropertyReview.page(params[:page]).per(10)
+    @q = PropertyReview.ransack(params[:q])
+    @property_reviews = @q.result(:distinct => true).includes(:user, :property).page(params[:page]).per(10)
 
     render("property_reviews/index.html.erb")
   end

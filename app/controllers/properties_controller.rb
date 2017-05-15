@@ -10,7 +10,8 @@ class PropertiesController < ApplicationController
   end
 
   def index
-    @properties = Property.page(params[:page]).per(10)
+    @q = Property.ransack(params[:q])
+    @properties = @q.result(:distinct => true).includes(:user, :pictures, :property_reviews, :requests).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@properties.where.not(:address_latitude => nil)) do |property, marker|
       marker.lat property.address_latitude
       marker.lng property.address_longitude

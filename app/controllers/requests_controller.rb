@@ -10,7 +10,8 @@ class RequestsController < ApplicationController
   end
 
   def index
-    @requests = Request.page(params[:page]).per(10)
+    @q = Request.ransack(params[:q])
+    @requests = @q.result(:distinct => true).includes(:user, :property).page(params[:page]).per(10)
 
     render("requests/index.html.erb")
   end
