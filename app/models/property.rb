@@ -1,6 +1,8 @@
 class Property < ApplicationRecord
   # Direct associations
 
+  has_many   :pictures
+
   belongs_to :user,
              :counter_cache => true
 
