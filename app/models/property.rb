@@ -1,6 +1,9 @@
 class Property < ApplicationRecord
   # Direct associations
 
+  has_many   :property_reviews,
+             :dependent => :destroy
+
   has_many   :pictures
 
   belongs_to :user,
