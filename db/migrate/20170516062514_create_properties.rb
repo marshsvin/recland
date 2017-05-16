@@ -9,6 +9,7 @@ class CreateProperties < ActiveRecord::Migration
       t.float :acreage
       t.string :description
       t.float :price
+      t.boolean :accommodations
 
       t.timestamps
 

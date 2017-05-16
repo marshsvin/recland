@@ -1,6 +1,6 @@
-ActiveAdmin.register Property do
+ActiveAdmin.register Activity do
 
- permit_params :user_id, :address, :zip_code, :state, :city, :acreage, :description, :price, :accommodations
+ permit_params :activities_id, :hunting, :fishing, :dirt_biking, :mountain_biking, :atv_riding, :hiking
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

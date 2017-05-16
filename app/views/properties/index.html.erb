@@ -9,6 +9,21 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
+    <%= f.label :accommodations_eq, "Accommodations" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :accommodations_eq, "1", checked: ((params[:q] && params[:q][:accommodations_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :accommodations_eq, "0", checked: ((params[:q] && params[:q][:accommodations_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :accommodations_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+<div class="form-group">
   <%= f.label :price, "Price" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
@@ -180,6 +195,7 @@
         <th>Acreage</th>
         <th>Description</th>
         <th>Price</th>
+        <th>Accommodations</th>
         <th>Actions</th>
       </tr>
 
@@ -199,6 +215,7 @@
         <td><%= property.acreage %></td>
         <td><%= property.description %></td>
         <td><%= property.price %></td>
+        <td><%= property.accommodations %></td>
         <td>
           <a href="/properties/<%= property.id %>" class="btn btn-primary">Show</a>
           

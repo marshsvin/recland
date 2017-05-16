@@ -2,6 +2,23 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => "properties#index"
+  # Routes for the Activity resource:
+  # CREATE
+  get "/activities/new", :controller => "activities", :action => "new"
+  post "/create_activity", :controller => "activities", :action => "create"
+
+  # READ
+  get "/activities", :controller => "activities", :action => "index"
+  get "/activities/:id", :controller => "activities", :action => "show"
+
+  # UPDATE
+  get "/activities/:id/edit", :controller => "activities", :action => "edit"
+  post "/update_activity/:id", :controller => "activities", :action => "update"
+
+  # DELETE
+  get "/delete_activity/:id", :controller => "activities", :action => "destroy"
+  #------------------------------
+
   # Routes for the Picture resource:
   # CREATE
   get "/pictures/new", :controller => "pictures", :action => "new"

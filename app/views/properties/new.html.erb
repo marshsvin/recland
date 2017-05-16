@@ -84,6 +84,14 @@
         <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @property.price %>">
       </div>
 
+      <!-- Label and input for accommodations -->
+      <div class="checkbox">
+        <label for="accommodations">
+          <input type="checkbox" id="accommodations" name="accommodations" value="1" <%= "checked" if @property.accommodations %>>
+          Accommodations
+        </label>
+      </div>
+
       <button class="btn btn-success">
         Create Property
       </button>

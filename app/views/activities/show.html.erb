@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h3>Activity #<%= @activity.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Activities</dt>
+      <dd>
+        <% if @activity.activities.present? %>
+          <a href="/properties/<%= @activity.activities_id %>">
+            <%= @activity.activities.user_id %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>Hunting</dt>
+      <dd><%= @activity.hunting %></dd>
+
+      <dt>Fishing</dt>
+      <dd><%= @activity.fishing %></dd>
+
+      <dt>Dirt biking</dt>
+      <dd><%= @activity.dirt_biking %></dd>
+
+      <dt>Mountain biking</dt>
+      <dd><%= @activity.mountain_biking %></dd>
+
+      <dt>Atv riding</dt>
+      <dd><%= @activity.atv_riding %></dd>
+
+      <dt>Hiking</dt>
+      <dd><%= @activity.hiking %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/activities" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/activities/<%= @activity.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_activity/<%= @activity.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

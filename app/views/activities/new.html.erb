@@ -1,0 +1,85 @@
+<!-- Validation failure messages -->
+<% if @activity.errors.any? %>
+  <% @activity.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Activity</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_activity" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for activities_id -->
+      <div class="form-group">
+        <label for="activities_id" class="control-label">
+          Activities
+        </label>
+
+        <%= select_tag(:activities_id, options_from_collection_for_select(Property.all, :id, :user_id, @activity.activities_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for hunting -->
+      <div class="checkbox">
+        <label for="hunting">
+          <input type="checkbox" id="hunting" name="hunting" value="1" <%= "checked" if @activity.hunting %>>
+          Hunting
+        </label>
+      </div>
+
+      <!-- Label and input for fishing -->
+      <div class="checkbox">
+        <label for="fishing">
+          <input type="checkbox" id="fishing" name="fishing" value="1" <%= "checked" if @activity.fishing %>>
+          Fishing
+        </label>
+      </div>
+
+      <!-- Label and input for dirt_biking -->
+      <div class="checkbox">
+        <label for="dirt_biking">
+          <input type="checkbox" id="dirt_biking" name="dirt_biking" value="1" <%= "checked" if @activity.dirt_biking %>>
+          Dirt biking
+        </label>
+      </div>
+
+      <!-- Label and input for mountain_biking -->
+      <div class="checkbox">
+        <label for="mountain_biking">
+          <input type="checkbox" id="mountain_biking" name="mountain_biking" value="1" <%= "checked" if @activity.mountain_biking %>>
+          Mountain biking
+        </label>
+      </div>
+
+      <!-- Label and input for atv_riding -->
+      <div class="checkbox">
+        <label for="atv_riding">
+          <input type="checkbox" id="atv_riding" name="atv_riding" value="1" <%= "checked" if @activity.atv_riding %>>
+          Atv riding
+        </label>
+      </div>
+
+      <!-- Label and input for hiking -->
+      <div class="checkbox">
+        <label for="hiking">
+          <input type="checkbox" id="hiking" name="hiking" value="1" <%= "checked" if @activity.hiking %>>
+          Hiking
+        </label>
+      </div>
+
+      <button class="btn btn-success">
+        Create Activity
+      </button>
+      or
+      <a href="/activities">Cancel</a>
+    </form>
+  </div>
+</div>
