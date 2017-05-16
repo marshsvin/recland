@@ -11,7 +11,7 @@ class PropertiesController < ApplicationController
 
   def index
     @q = Property.ransack(params[:q])
-    @properties = @q.result(:distinct => true).includes(:user, :pictures, :property_reviews, :requests).page(params[:page]).per(10)
+    @properties = @q.result(:distinct => true).includes(:user, :pictures, :property_reviews, :requests, :activities).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@properties.where.not(:address_latitude => nil)) do |property, marker|
       marker.lat property.address_latitude
       marker.lng property.address_longitude
@@ -22,6 +22,7 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @activity = Activity.new
     @request = Request.new
     @property_review = PropertyReview.new
     @picture = Picture.new
@@ -47,6 +48,7 @@ class PropertiesController < ApplicationController
     @property.acreage = params[:acreage]
     @property.description = params[:description]
     @property.price = params[:price]
+    @property.accommodations = params[:accommodations]
 
     save_status = @property.save
 
@@ -79,6 +81,7 @@ class PropertiesController < ApplicationController
     @property.acreage = params[:acreage]
     @property.description = params[:description]
     @property.price = params[:price]
+    @property.accommodations = params[:accommodations]
 
     save_status = @property.save
 

@@ -1,0 +1,192 @@
+<div class="page-header">
+  <h1>
+    Activities
+    <a href="/activities/new" class="btn btn-lg btn-success">New Activity</a>
+  </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "activities_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :hiking_eq, "Hiking" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :hiking_eq, "1", checked: ((params[:q] && params[:q][:hiking_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :hiking_eq, "0", checked: ((params[:q] && params[:q][:hiking_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :hiking_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+<div class="form-group">
+    <%= f.label :atv_riding_eq, "Atv riding" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :atv_riding_eq, "1", checked: ((params[:q] && params[:q][:atv_riding_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :atv_riding_eq, "0", checked: ((params[:q] && params[:q][:atv_riding_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :atv_riding_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+<div class="form-group">
+    <%= f.label :mountain_biking_eq, "Mountain biking" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :mountain_biking_eq, "1", checked: ((params[:q] && params[:q][:mountain_biking_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :mountain_biking_eq, "0", checked: ((params[:q] && params[:q][:mountain_biking_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :mountain_biking_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+<div class="form-group">
+    <%= f.label :dirt_biking_eq, "Dirt biking" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :dirt_biking_eq, "1", checked: ((params[:q] && params[:q][:dirt_biking_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :dirt_biking_eq, "0", checked: ((params[:q] && params[:q][:dirt_biking_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :dirt_biking_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+<div class="form-group">
+    <%= f.label :fishing_eq, "Fishing" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :fishing_eq, "1", checked: ((params[:q] && params[:q][:fishing_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :fishing_eq, "0", checked: ((params[:q] && params[:q][:fishing_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :fishing_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+<div class="form-group">
+    <%= f.label :hunting_eq, "Hunting" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :hunting_eq, "1", checked: ((params[:q] && params[:q][:hunting_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :hunting_eq, "0", checked: ((params[:q] && params[:q][:hunting_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :hunting_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/activities" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#activities_filters">
+      Show Filters
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Activities</th>
+        <th>Hunting</th>
+        <th>Fishing</th>
+        <th>Dirt biking</th>
+        <th>Mountain biking</th>
+        <th>Atv riding</th>
+        <th>Hiking</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @activities.each do |activity| %>
+      <tr>
+        <td>
+          <% if activity.activities.present? %>
+            <a href="/properties/<%= activity.activities.id %>">
+              <%= activity.activities.user_id %>
+            </a>
+          <% end %>
+        </td>
+        <td><%= activity.hunting %></td>
+        <td><%= activity.fishing %></td>
+        <td><%= activity.dirt_biking %></td>
+        <td><%= activity.mountain_biking %></td>
+        <td><%= activity.atv_riding %></td>
+        <td><%= activity.hiking %></td>
+        <td>
+          <a href="/activities/<%= activity.id %>" class="btn btn-primary">Show</a>
+          <a href="/activities/<%= activity.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_activity/<%= activity.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <%= paginate @activities, theme: 'twitter-bootstrap-4' %>
+  </div>
+</div>

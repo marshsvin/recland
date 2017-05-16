@@ -20,6 +20,10 @@ class Property < ApplicationRecord
   end
   # Direct associations
 
+  has_many   :activities,
+             :foreign_key => "activities_id",
+             :dependent => :destroy
+
   has_many   :requests,
              :dependent => :destroy
 
